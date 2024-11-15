@@ -17,6 +17,18 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    // Action to serve the video player
+    public IActionResult VideoPlayer(string videoFileName)
+    {
+        if (string.IsNullOrEmpty(videoFileName))
+        {
+            videoFileName = "sample.mp4"; // Default video file
+        }
+
+        ViewData["VideoFileName"] = videoFileName;
+        return View();
+    }
 
     public IActionResult Privacy()
     {
